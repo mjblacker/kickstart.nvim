@@ -247,6 +247,7 @@ local function close_neo_tree()
   require('neo-tree.sources.manager').close_all()
   vim.notify 'closed all'
 end
+
 --
 -- [[ Configure and install plugins ]]
 --
@@ -277,12 +278,13 @@ require('lazy').setup({
   -- Auto-save sessions
   {
     'rmagatti/auto-session',
+    enabled = true,
     lazy = false,
     opts = {
       log_level = 'error',
       auto_session_suppress_dirs = { '~/', '/' },
-      auto_session_enable_last_session = true,
-      auto_session_root_dir = '~/.local/state/nvim/sessions/',
+      auto_session_enable_last_session = false,
+      -- auto_session_root_dir = '~/.local/state/nvim/sessions/',
       bypass_session_save_file_types = { 'neo-tree' },
       pre_save_cmds = {
         close_neo_tree,
@@ -869,6 +871,7 @@ require('lazy').setup({
   },
   {
     'nvim-neo-tree/neo-tree.nvim',
+    enabled = true,
     branch = 'v3.x',
     cmd = 'Neotree',
     dependencies = {
