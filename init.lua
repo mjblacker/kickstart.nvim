@@ -282,6 +282,21 @@ require('lazy').setup({
   --        end,
   --    }
   --  --
+
+  -- NOTE: Plugins can also be added by using a table,
+  -- with the first argument being the link and the following
+  -- keys can be used to configure plugin behavior/loading/etc.
+  --
+  -- Use `opts = {}` to force a plugin to be loaded.
+  --
+  --  This is equivalent to:
+  --    require('Comment').setup({})
+  
+    'BlackLight/nvim-http',
+
+  -- "gc" to comment visual regions/lines
+  { 'numToStr/Comment.nvim', opts = {} },
+  --
   -- Auto-save sessions
   {
     'rmagatti/auto-session',
@@ -435,7 +450,11 @@ require('lazy').setup({
         --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
         --   },
         -- },
-        -- pickers = {}
+        pickers = {
+          find_files = {
+            hidden = true
+          }
+        },
         extensions = {
           ['ui-select'] = { require('telescope.themes').get_dropdown() },
         },
@@ -1092,6 +1111,8 @@ require('lazy').setup({
   --
   require 'kickstart.plugins.lazygit',
   require 'kickstart.plugins.dadbod',
+  require 'kickstart.plugins.notify',
+  require 'kickstart.plugins.laravel',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
