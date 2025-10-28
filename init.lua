@@ -90,6 +90,10 @@ P.S. You can delete this when you're done too. It's your config now! :)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
@@ -291,7 +295,6 @@ require('lazy').setup({
   --
   --  This is equivalent to:
   --    require('Comment').setup({})
-  
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
@@ -337,7 +340,7 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
-    -- 'BlackLight/nvim-http',
+  -- 'BlackLight/nvim-http',
 
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
@@ -497,8 +500,8 @@ require('lazy').setup({
         -- },
         pickers = {
           find_files = {
-            hidden = true
-          }
+            hidden = true,
+          },
         },
         extensions = {
           ['ui-select'] = { require('telescope.themes').get_dropdown() },
